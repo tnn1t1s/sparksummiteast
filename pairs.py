@@ -11,8 +11,9 @@ APP_NAME = "My Spark Application"
 ## Main functionality
 
 def main(sc):
-	rdd = sc.parallelize(range(1000), 10)
-	print rdd.mean()
+	 x = sc.parallelize([("a", 1), ("b", 4)])
+	 y = sc.parallelize([("a", 2)])
+	 print sorted(x.cogroup(y).collect())
 
 if __name__ == "__main__":
 	conf = SparkConf().setAppName(APP_NAME)
